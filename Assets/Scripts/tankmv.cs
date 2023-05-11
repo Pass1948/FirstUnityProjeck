@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ballmove : MonoBehaviour
+public class tankmv : MonoBehaviour
 {
     public float speed = 0;                 // ¼Óµµ
 
