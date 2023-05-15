@@ -5,13 +5,13 @@ using UnityEngine.InputSystem;
 
 public class UnityInput : MonoBehaviour
 {
-    /************************************************************************
+    /*******************************************************************************
 	 * 유니티 입력
 	 * 
 	 * 유니티에서 사용자의 명령을 감지할 수 있는 수단
 	 * 사용자는 외부 장치를 이용하여 게임을 제어할 수 있음
 	 * 유니티는 다양한 타입의 입력기기(키보드 및 마우스, 조이스틱, 터치스크린 등)를 지원
-	 ************************************************************************/
+	 *******************************************************************************/
 
     private void Update()
     {
@@ -19,7 +19,7 @@ public class UnityInput : MonoBehaviour
     }
 
 
-    // <Device>
+    // <Device> : 고전 방식이라 요즘은 잘쓰이지 않음
     // 특정한 장치를 기준으로 입력 감지
     // 특정한 장치의 입력을 감지하기 때문에 여러 플랫폼에 대응이 어려움
     private void InputByDevice()
@@ -43,7 +43,7 @@ public class UnityInput : MonoBehaviour
     }
 
 
-    // <InputManager>
+    // <InputManager>  : 모바일과 VR기기에 대한 대응이 부족함
     // 여러 장치의 입력을 입력매니저에 이름과 입력을 정의
     // 입력매니저의 이름으로 정의한 입력의 변경사항을 확인
     // 유니티 에디터의 Edit -> Project Settings -> Input Manager 에서 관리
@@ -54,11 +54,11 @@ public class UnityInput : MonoBehaviour
         // 버튼 입력
         // Fire1 : 키보드(Left Ctrl), 마우스(Left Button), 조이스틱(button0)으로 정의됨
         // 이름을 입력받으면 된다
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))           // 누르는 순간
             Debug.Log("Fire1 is down");
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1"))               // 누르는 중
             Debug.Log("Fire1 is pressing");
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire1"))             // 때는 순간
             Debug.Log("Fire1 is up");
 
         // 축 입력
@@ -76,7 +76,7 @@ public class UnityInput : MonoBehaviour
 
     private void InputByInputSystem()
     {
-        // InputSystem은 이벤트 방식으로 구현됨
+        // InputSystem은 입력 당시에 해당 함수가 확인 되는 이벤트 방식으로 구현됨
         // Update마다 입력변경사항을 확인하는 방식 대신 변경이 있을 경우 이벤트로 확인
         // 메시지를 통해 받는 방식과 이벤트 함수를 직접 연결하는 방식 등으로 구성
     }

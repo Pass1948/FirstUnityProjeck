@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "a0a6b677-c173-4c5d-b992-eb13547f10b2",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Fire",
                     "type": "Button",
                     "id": "7a990b41-ba10-44ed-8744-03c9ac309511",
@@ -43,17 +34,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "3e44eefc-d7c0-4851-8eb3-4da1d1e1cfb3",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "WASD",
                     "id": "551ec883-550a-4c2d-8817-ecb83aa8382a",
@@ -166,51 +146,18 @@
                 },
                 {
                     "name": "",
-                    "id": "be90de66-3953-4617-8c9c-5f560d9c139a",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e3c7278e-1273-4a5a-8337-b6247dd543bc",
-                    "path": "<Touchscreen>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "55fc002e-a3b9-4668-8eeb-d8b0f8cadec1",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "51936618-4197-4f02-a859-4dae3009bfbc",
+                    "id": "7cd3cfca-9055-49f1-a648-5cb5b8fcb230",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "7cd3cfca-9055-49f1-a648-5cb5b8fcb230",
+                    "id": "527c89ea-6a06-404b-82ca-0e80c97d81e1",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",

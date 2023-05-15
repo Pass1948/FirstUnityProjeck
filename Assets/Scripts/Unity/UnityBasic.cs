@@ -20,12 +20,12 @@ public class UnityBasic : MonoBehaviour
 
         // 컴포넌트가 불어있는 게임오브젝트
         // gameObject.name;                 // 게임오브젝트의 이름 접근
-        // gameObject.activeSelf;         // 게임오브젝트의 활성화 여부 접근
-        // gameObject.tag;                   // 게임오브젝트의 태그 접근
-        // gameObject.layer;               // 게임오브젝트의 레이어 접근
+        // gameObject.activeSelf;           // 게임오브젝트의 활성화 여부 접근
+        // gameObject.tag;                  // 게임오브젝트의 태그 접근
+        // gameObject.layer;                // 게임오브젝트의 레이어 접근
 
         // <게임오브젝트 참색>
-        GameObject.Find("Player");                     // 이름으로 찾기
+        GameObject.Find("Player");                      // 이름으로 찾기
         GameObject.FindGameObjectWithTag("Player");     // 태그로 하나 찾기
         GameObject.FindGameObjectsWithTag("Player");	// 태그로 모두 찾기 (결과가 배열로 나옴)
 
@@ -60,7 +60,7 @@ public class UnityBasic : MonoBehaviour
         gameObject.GetComponentsInParent<AudioSource>();    // 게임오브젝트의 부모 게임오브젝트 포함 컴포넌트 접근
 
         // <컴포넌트 탐색>
-        // 프레임마다 탐색을 해서 특별한 경우 이외는 사용권장을 하지않음
+        // 프레임마다 탐색을 해서 느리다 그래서 특별한 경우 이외는 사용권장을 하지않음 대신, 미리 컴포넌트를 할당하거나 불러오기 같은경우로 대체한다
         FindObjectOfType<AudioSource>();                    // Scene 내의 컴포넌트 탐색 
         FindObjectsOfType<AudioSource>();                   // Scene 내의 모든 컴포넌트 탐색
 
@@ -69,6 +69,7 @@ public class UnityBasic : MonoBehaviour
         Rigidbody rigid = gameObject.AddComponent<Rigidbody>();   // 게임오브젝트에 컴포넌트 추가
 
         // <컴포넌트 삭제>
+        Destroy(GetComponent<AudioSource>());
         Destroy(rigid);
 
     }

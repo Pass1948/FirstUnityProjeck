@@ -1,74 +1,113 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody rb;
     private Vector3 moveDir;
+    private Rigidbody rb;
+    [SerializeField] private float speed;
+    [SerializeField] private float rotateSpeed;
+    [SerializeField] private float jumpPower;
 
-    [SerializeField]
-    public float movePower;
+    [Header("Shooter")]
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform bulletPoint;
+    [SerializeField] private float repeatTime;
 
-    [SerializeField]
-    public float moveSpeed;
-
-    [SerializeField]
-    public float jumpPower;
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    private void Update()
+    private void Update()                       
     {
         Move();
         Rotate();
-        //LookAt();
-        Jump();
+        // LookAt();
+        // transform.position = new Vector3(0, 0, 0);  // 지정대상 또는 좌표로 순간이동 시킬수있음
+       
     }
 
-    private void Move()
+    public void Move()
     {
-        rb.AddForce(transform.forward * moveDir.z * movePower);
-        transform.position += moveDir * movePower * Time.deltaTime; // Time.deltaTime은 1ms로 움직임을 가질수있게 해줌
-        //transform.Translate(Vector3.forward * moveDir.z * movePower * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime * moveDir.z, Space.Self);  // Translate는 원하는 방향으로 몇 힘으로 몇프레임정도로 움직이는걸로 이뤄짐
+                                                                                                // 좌표 뒤에 추가로 Space.World or Space.Self를 써주면 주체를 결정할수있다
+                                                                                                // transform.position += moveDir* speed * Time.deltaTime;          
+                                                                                                // position는 좌표로 움직임(상하좌우)
+                                                                                                // deltaTime은 1/시간 의 단위로 이뤄져있다
     }
 
     public void Rotate()
     {
-        transform.Rotate(Vector3.up, moveDir.x * moveSpeed * Time.deltaTime, Space.World);
+        transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime * moveDir.x, Space.World);
+
     }
 
-    public void LookAt()
+    /* 
+    public void LookAt()        // 지정된 대상을 바라보며 움직임
     {
-        transform.LookAt(new Vector3(0, 0, 0));
+        transform.LookAt(new Vector3(0, 0, 0));                 // 목표를 지점 또는 지정대상을 설정해주면 된다
     }
+    */
 
+    /*
     public void Rotation()
     {
-        transform.position = new Vector3(0, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        Vector3 rotation = transform.rotation.ToEulerAngles();
+        Vector3 rotation = transform.rotation.eulerAngles();
     }
+    */
 
+    /*
     private void Jump()
     {
         rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
     }
-
+    */
 
     private void OnMove(InputValue value)
     {
         moveDir.x = value.Get<Vector2>().x;
         moveDir.z = value.Get<Vector2>().y;
+
     }
 
+    /*
     private void OnJump(InputValue value)
     {
         Jump();
     }
+    */
+
+   
+
+    private void OnFire(InputValue value)
+    {
+        // Prefab을 새로운 게임오브젝트로 만드는 작업
+        // GameObject odj = Instantiate(bulletPrefab, transform.position, transform.rotation);    
+        Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
+    }
+
+    private Coroutine bulletRoutine;
+    // 반복적으로 총알을 쏘는 기능 구현
+    IEnumerator BulletMakeRoutine()
+    {
+        while (true)
+        {
+            Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
+            yield return new WaitForSeconds(repeatTime);
+        }
+    }
+
+    private void OnRepeatFire(InputValue value)
+    {
+        if (value.isPressed)
+        {
+           bulletRoutine = StartCoroutine(BulletMakeRoutine());
+        }
+        else
+        {
+            StopCoroutine(bulletRoutine);
+        }
+    }
+
+
 }
