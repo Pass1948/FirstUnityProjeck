@@ -6,6 +6,21 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    /* <On+함수의 역할>
+     * 
+     * On뒤에 붙은 함수들과 그냥 함수들은 내용에 따라 사용방법이 달라지며 
+     * 분리객체지향에 따라 사용해주는걸 지향한다 
+     * 
+     * OnMove  : 입력 input
+     * 
+     * Move    : 처리 controller
+     * 
+     * OnMoved : 데이터 model + 이벤트
+     * 
+     */
+
+
+
     private Vector3 moveDir;
     private Rigidbody rb;
     [SerializeField] private float speed;
@@ -15,6 +30,8 @@ public class PlayerController : MonoBehaviour
     [Header("Shooter")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletPoint;
+    [SerializeField] private Transform bulletPoint2;
+    [SerializeField] private Transform bulletPoint3;
     [SerializeField] private float repeatTime;
 
     private void Update()                       
@@ -84,17 +101,22 @@ public class PlayerController : MonoBehaviour
         // Prefab을 새로운 게임오브젝트로 만드는 작업
         // GameObject odj = Instantiate(bulletPrefab, transform.position, transform.rotation);    
         Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
+        Instantiate(bulletPrefab, bulletPoint2.position, bulletPoint2.rotation);
+        Instantiate(bulletPrefab, bulletPoint3.position, bulletPoint3.rotation);
     }
 
     private Coroutine bulletRoutine;
-    // 반복적으로 총알을 쏘는 기능 구현
+    // 반복적으로 총알을 쏘는 기능 구현, 지정된키를 누르고 있으면 연사가 됨
     IEnumerator BulletMakeRoutine()
     {
         while (true)
         {
             Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
+            Instantiate(bulletPrefab, bulletPoint2.position, bulletPoint2.rotation);
+            Instantiate(bulletPrefab, bulletPoint3.position, bulletPoint3.rotation);
             yield return new WaitForSeconds(repeatTime);
         }
+
     }
 
     private void OnRepeatFire(InputValue value)

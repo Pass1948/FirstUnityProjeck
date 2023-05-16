@@ -11,6 +11,9 @@ public class UnityCoroutine : MonoBehaviour
 	 * 반복가능한 작업을 분산하여 진행하며, 실행을 일시정지하고 중단한 부분부터 다시시작할 수 있음
 	 * 단, 코루틴은 스레드가 아니며 코루틴의 작업은 여전히 메인 스레드에서 실행
 	 ************************************************************************/
+    // 동기식 : 사용자가 직접 컨트롤
+    // 비동기식 : 프로그램이 별도로 작업
+
 
     private void Start()
     {
@@ -33,7 +36,7 @@ public class UnityCoroutine : MonoBehaviour
     private Coroutine routine;
     private void CoroutineStart()
     {
-        routine = StartCoroutine(SubRoutine());
+        routine = StartCoroutine(SubRoutine()); 
     }
 
     // <코루틴 종료>

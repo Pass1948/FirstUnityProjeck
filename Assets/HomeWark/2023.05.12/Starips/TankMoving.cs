@@ -7,9 +7,7 @@ public class TankMoving : MonoBehaviour
 {
     private Rigidbody rb;
     private Vector3 moveDir;
-    public float speed;
     public float curlSpeed;
-    public float jumpPower;
 
 
 
@@ -17,11 +15,7 @@ public class TankMoving : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-    
-    void Move()
-    {
-        transform.Translate(moveDir * speed * Time.deltaTime, Space.World);
-    }
+   
 
     private void OnMove(InputValue value)
     {
@@ -36,7 +30,6 @@ public class TankMoving : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
         Rotate();
     }
 }

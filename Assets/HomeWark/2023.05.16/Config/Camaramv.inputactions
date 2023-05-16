@@ -1,0 +1,34 @@
+{
+    "name": "Camaramv",
+    "maps": [
+        {
+            "name": "c",
+            "id": "31adb0ca-abe0-415c-a43a-389ee548ae29",
+            "actions": [
+                {
+                    "name": "CamaraChange",
+                    "type": "PassThrough",
+                    "id": "f7c5760d-b064-40a6-a57b-68ce98475b74",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e14c99c3-9d5e-4f41-8cee-d665a06f7175",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CamaraChange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
