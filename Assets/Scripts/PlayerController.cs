@@ -20,12 +20,12 @@ public class PlayerController : MonoBehaviour
      */
 
 
-
+    private Animator animator;
     private Vector3 moveDir;
     private Rigidbody rb;
     [SerializeField] private float speed;
     [SerializeField] private float rotateSpeed;
-    [SerializeField] private float jumpPower;
+   // [SerializeField] private float jumpPower;
 
     [Header("Shooter")]
     [SerializeField] private GameObject bulletPrefab;
@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform bulletPoint2;
     [SerializeField] private Transform bulletPoint3;
     [SerializeField] private float repeatTime;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()                       
     {
@@ -94,15 +99,18 @@ public class PlayerController : MonoBehaviour
     }
     */
 
-   
-
-    private void OnFire(InputValue value)
+    public void Fire()
     {
         // Prefab을 새로운 게임오브젝트로 만드는 작업
         // GameObject odj = Instantiate(bulletPrefab, transform.position, transform.rotation);    
         Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
         Instantiate(bulletPrefab, bulletPoint2.position, bulletPoint2.rotation);
         Instantiate(bulletPrefab, bulletPoint3.position, bulletPoint3.rotation);
+        animator.SetTrigger("Fire");
+    }
+    private void OnFire(InputValue value)
+    {
+        Fire();
     }
 
     private Coroutine bulletRoutine;
@@ -114,7 +122,9 @@ public class PlayerController : MonoBehaviour
             Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
             Instantiate(bulletPrefab, bulletPoint2.position, bulletPoint2.rotation);
             Instantiate(bulletPrefab, bulletPoint3.position, bulletPoint3.rotation);
+            animator.SetTrigger("Fire");
             yield return new WaitForSeconds(repeatTime);
+
         }
 
     }
@@ -124,6 +134,7 @@ public class PlayerController : MonoBehaviour
         if (value.isPressed)
         {
            bulletRoutine = StartCoroutine(BulletMakeRoutine());
+            
         }
         else
         {
