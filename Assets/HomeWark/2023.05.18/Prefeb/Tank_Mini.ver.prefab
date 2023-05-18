@@ -211,9 +211,8 @@ GameObject:
   - component: {fileID: 8112522654302865746}
   - component: {fileID: 8112522654302865745}
   - component: {fileID: 8112522654302865747}
-  - component: {fileID: 6497432955956949684}
-  - component: {fileID: 1544683743894024655}
-  - component: {fileID: 2274223107678137026}
+  - component: {fileID: 6626552871180436301}
+  - component: {fileID: 4535014436416596044}
   - component: {fileID: 5708530678805161033}
   m_Layer: 6
   m_Name: Tank_Mini.ver
@@ -297,7 +296,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6497432955956949684
+--- !u!114 &6626552871180436301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,17 +305,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8112522654583105495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa23489bdf4d9cb47991b1612ff46238, type: 3}
+  m_Script: {fileID: 11500000, guid: f92903cfccde23142a9719c63d15e488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
   rotateSpeed: 120
-  bulletPrefab: {fileID: 6746519037633342603, guid: 61a1d49da2e68a744b5861111980a548, type: 3}
-  bulletPoint: {fileID: 2527897189770770201}
-  bulletPoint2: {fileID: 2527897189770770201}
-  bulletPoint3: {fileID: 2527897189770770201}
-  repeatTime: 0.1
---- !u!114 &1544683743894024655
+--- !u!114 &4535014436416596044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -325,19 +319,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8112522654583105495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a8c8240eaff7ae478cba5d624859c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2274223107678137026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8112522654583105495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a639cf747bbeeec4b96b49e6fafb3b6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 94ceec860bb14ab44b007adacf911b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &5708530678805161033
