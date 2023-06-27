@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/HomeWark/2023.05.18/Scene/MainMenu.unity
-    guid: 76f087087383dd14088039c89cb2abb4
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: 6693bd468315bb540a469395f51f220a
   - enabled: 1
-    path: Assets/HomeWark/2023.05.18/Scene/GameScene.unity
-    guid: c521a2581803e6541bf03cfc42fc671e
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

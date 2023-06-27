@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DataManager : MonoBehaviour
+public class Datamanager : MonoBehaviour
 {
     [SerializeField]
     private int shootCount;
